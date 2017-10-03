@@ -4,7 +4,7 @@
 #
 ###############################################################################
 
-<FVR09> +proj=vgridshift +grids=fvr09.gtx
+<FVR09> +proj=vgridshift +grids=fvr09g2012.gtx
 
 <UTM29N> +proj=utm +zone=29 +ellps=GRS80 +units=m +no_defs
 <UTM29N_FVR09> +proj=pipeline +step +init=FO:FVR09 +step +init=FO:UTM32N

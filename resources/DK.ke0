@@ -1,0 +1,142 @@
+################################################################################
+#
+#                               Denmark
+#
+###############################################################################
+
+<DVR90> proj=vgridshift grids=dvr90g2013.gtx
+<DNN> proj=vgridshift grids=dnn.gtx
+
+<DKTM1> proj=etmerc lat_0=0 lon_0=9 k=0.99998 x_0=200000 y_0=-5000000 ellps=GRS80 units=m no_defs
+<DKTM2> proj=etmerc lat_0=0 lon_0=10 k=0.99998 x_0=400000 y_0=-5000000 ellps=GRS80 units=m no_defs
+<DKTM3> proj=etmerc lat_0=0 lon_0=11.75 k=0.99998 x_0=600000 y_0=-5000000 ellps=GRS80 units=m no_defs
+<DKTM4> proj=etmerc lat_0=0 lon_0=15 k=1 x_0=800000 y_0=-5000000 ellps=GRS80 units=m no_defs
+
+<DKTM1_DVR90> proj=pipeline step init=DK:DVR90 step init=DK:DKTM1
+<DKTM2_DVR90> proj=pipeline step init=DK:DVR90 step init=DK:DKTM2
+<DKTM3_DVR90> proj=pipeline step init=DK:DVR90 step init=DK:DKTM3
+<DKTM4_DVR90> proj=pipeline step init=DK:DVR90 step init=DK:DKTM4
+
+# Storstrom Bridge Map Projection: lon_0=1152nt
+<SSBKP> +proj=etmerc +lat_0=0 +lon_0=11.86666666666666666667 +k=1 +x_0=40000 +y_0=-6013000 +ellps=GRS80 +units=m +no_defs
+
+
+<KP2000B> proj=etmerc lat_0=0 lon_0=15 k=1 x_0=900000 y_0=0 ellps=GRS80 units=m no_defs
+<KP2000J> proj=etmerc lat_0=0 lon_0=9.5 k=0.99995 x_0=200000 y_0=0 ellps=GRS80 units=m no_defs
+<KP2000S> proj=etmerc lat_0=0 lon_0=12 k=0.99995 x_0=500000 y_0=0 ellps=GRS80 units=m no_defs
+
+<KP2000B_DVR90> proj=pipeline step init=DK:DVR90 step init=DK:KP2000B
+<KP2000J_DVR90> proj=pipeline step init=DK:DVR90 step init=DK:KP2000J
+<KP2000S_DVR90> proj=pipeline step init=DK:DVR90 step init=DK:KP2000S
+
+
+<UTM32N> proj=utm zone=32 ellps=GRS80 units=m no_defs
+<UTM33N> proj=utm zone=33 ellps=GRS80 units=m no_defs
+
+<UTM32N_DVR90> proj=pipeline step init=DK:DVR90 step init=DK:UTM32N
+<UTM33N_DVR90> proj=pipeline step init=DK:DVR90 step init=DK:UTM33N
+
+<UTM32ED> proj=utm zone=32 ellps=intl units=m no_defs
+<UTM33ED> proj=utm zone=33 ellps=intl units=m no_defs
+
+# in: geo_etrs89, ud: utm32_ed50, gyldighedsområde Jylland, Sjælland
+<UTM32_ED50_L> proj=pipeline
+
+    step proj=cart ellps=GRS80
+    step proj=helmert inv ellps=GRS80
+         x=-81.0703 y=-89.3603 z=-115.7526 rx=-0.48488 ry=-0.02436  rz=-0.41321   s=-0.540645
+    step proj=cart inv ellps=intl
+
+    step proj=utm ellps=intl zone=32   # nu er de i TC32 (UTM32 hvis ED50 var "perfekt")
+    step init=u32ed.pol:TC32_L inv # fra TC32 til det faktisk realiserede ED50
+
+
+<UTM33ED> proj=utm zone=33 ellps=intl units=m no_defs
+
+# Ellipsoide: GS (se def_lab.txt)
+<GS_formal> proj=lcc lat_0=55 lon_0=212nt x_0=500000 y_0=500000 lat_1=56 ellps=intl
+<GSB_formal> proj=lcc lat_0=55 lon_0=-221nt x_0=18831.460 y_0=5614.621 lat_1=56 ellps=intl
+<SB_formal> proj=etmerc lat_0=0 lon_0=1058nt k=0.999999 x_0=500000 y_0=0 ellps=intl units=m no_defs
+<DKS_formal> proj=etmerc lat_0=0 lon_0=12.8 k=0.999999 x_0=119000 y_0=-5895000 ellps=intl units=m no_defs
+<KK_formal> proj=localcrd ellps=dansk units=m no_defs
+<OS_formal> proj=localcrd ellps=bessel units=m no_defs
+
+
+# ETRS89 (Geodetic) -> System45
+<S45B>  proj=pipeline
+        step   proj=cart  ellps=GRS80
+
+        step   proj=helmert inv ellps=GRS80
+               x=-81.0703  y=-89.3603   z=-115.7526
+               rx=-0.48488 ry=-0.02436  rz=-0.41321   s=-0.540645
+
+        step   proj=cart inv ellps=intl
+
+        step   proj=utm ellps=intl zone=32
+        step   init=bornholm.pol:TC32_B inv
+
+
+# ETRS89 (Geodetic) -> System 34 Jutland
+<S34J>  proj=pipeline
+        step   proj=cart ellps=GRS80
+
+        step   proj=helmert inv ellps=GRS80
+               x=-81.0703 y=-89.3603 z=-115.7526 rx=-0.48488 ry=-0.02436  rz=-0.41321 s=-0.540645
+
+        step   proj=cart inv ellps=intl
+
+        step   proj=utm ellps=intl zone=32
+
+        step   init=s34j.pol:tc32 inv
+#       inv
+
+<S34S>  proj=pipeline
+        step proj=cart ellps=GRS80
+
+        step   proj=helmert inv ellps=GRS80
+               x=-81.0703 y=-89.3603 z=-115.7526 rx=-484.88 ry=-24.36 rz=-413.21 s=-0.540645
+
+        step   proj=cart  inv ellps=intl
+
+        step   proj=utm ellps=intl zone=32
+
+        step   init=s34s.pol:tc32 inv
+#       inv
+
+#<U32ED> proj=pipeline
+#        step proj=cart ellps=GRS80
+#
+#        step proj=helmert inv ellps=GRS80
+
+#              x=-81.0703 y=-89.3603 z=-115.7526
+#             rx=-0.48488 ry=-0.02436  rz=-0.41321   s=-0.540645
+
+#        step proj=cart inv ellps=intl
+
+#        step proj=utm ellps=intl zone=32
+#        step init=u32ed.pol:tc32_utm32 inv
+#	inv
+
+<UTM32_ED50_B> proj=pipeline
+    step proj=cart ellps=GRS80
+    step proj=helmert inv ellps=GRS80
+         x=-81.0703 y=-89.3603 z=-115.7526 rx=-0.48488 ry=-0.02436  rz=-0.41321   s=-0.540645
+    step proj=cart inv ellps=intl
+    step proj=utm ellps=intl zone=32   # TC32_TC32
+    step init=bornholm.pol:UTM32_ED50_B inv
+
+<SB> proj=pipeline
+        step proj=cart ellps=GRS80
+
+        step proj=helmert inv ellps=GRS80
+              x=-81.0703 y=-89.3603 z=-115.7526
+             rx=-484.88 ry=-24.36  rz=-413.21   s=-0.540645
+
+        step proj=cart inv ellps=intl
+
+        step proj=utm ellps=intl zone=32
+        step init=u32ed50.pol:tc32 inv
+
+        step init=sb.pol:tc32 inv
+#       inv
+<>

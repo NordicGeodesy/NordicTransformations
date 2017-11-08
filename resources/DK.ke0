@@ -53,13 +53,13 @@
 
 <UTM33ED> proj=utm zone=33 ellps=intl units=m no_defs
 
-# Ellipsoide: GS (se def_lab.txt)
-<GS_formal> proj=lcc lat_0=55 lon_0=212nt x_0=500000 y_0=500000 lat_1=56 ellps=intl
-<GSB_formal> proj=lcc lat_0=55 lon_0=-221nt x_0=18831.460 y_0=5614.621 lat_1=56 ellps=intl
-<SB_formal> proj=etmerc lat_0=0 lon_0=1058nt k=0.999999 x_0=500000 y_0=0 ellps=intl units=m no_defs
+# Ellipsoide: GS (se def_lab.txt - tilsyneladende er det Andræ)
+<GS_formal>  proj=lcc    lat_0=55 lon_0=212nt x_0=500000 y_0=500000 lat_1=56 ellps=intl
+<GSB_formal> proj=lcc    lat_0=55 lon_0=-221nt x_0=18831.460 y_0=5614.621 lat_1=56 ellps=intl
+<SB_formal>  proj=etmerc lat_0=0 lon_0=1058nt k=0.999999 x_0=500000 y_0=0 ellps=intl units=m no_defs
 <DKS_formal> proj=etmerc lat_0=0 lon_0=12.8 k=0.999999 x_0=119000 y_0=-5895000 ellps=intl units=m no_defs
-<KK_formal> proj=localcrd ellps=dansk units=m no_defs
-<OS_formal> proj=localcrd ellps=bessel units=m no_defs
+<KK_formal>  proj=localcrd ellps=dansk units=m no_defs
+<OS_formal>  proj=localcrd ellps=bessel units=m no_defs
 
 
 # ETRS89 (Geodetic) -> System45

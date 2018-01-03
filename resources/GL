@@ -1,0 +1,20 @@
+################################################################################
+#
+#                               Greenland
+#
+# GR96 is used as the pivot datum for all transformations within this file.
+#
+# GR96 is defined as ITRF94 epoch 15. August, 1996, fixed to the North American
+# plate.
+#
+###############################################################################
+#
+
+<ITRF2014>  proj = pipeline ellps = GRS80
+            step inv init = ITRF2014:ITRF94 t_obs = 1996.623
+            step inv init = ITRF2014:NOAM   t_epoch=1996.623
+
+<ITRF2008>  proj = pipeline ellps = GRS80
+            step inv init = ITRF2008:ITRF94 t_obs = 1996.623
+            step inv init = ITRF2008:NOAM   t_epoch=1996.623
+

@@ -176,3 +176,14 @@ file:
 | UTM29N_FVR09      | UTM Zone 29N + FVR09 heights                  |
 | FD54              | Faroese Datum of 1954                         |
 | FVR09             | Faroese Vertical Reference of 2009            |
+
+
+### GL
+
+Definitions of Greenlandic systems. Uses GR96 as pivot datum.
+
+| Entry             |  Description
+|-------------------|-----------------------------------------------|
+| ITRF2014          | Transformation from GR96 to ITRF2014          |
+| ITRF2008          | Transformation from GR96 to ITRF2008          |
+

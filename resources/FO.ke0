@@ -1,0 +1,57 @@
+###############################################################################
+#
+#                               Faroe Islands
+#
+###############################################################################
+
+<FVR09> proj=vgridshift grids=fvr09g2012.gtx
+
+<UTM29N> proj=utm zone=29 ellps=GRS80 units=m no_defs
+<UTM29N_FVR09> proj=pipeline step init=FO:FVR09 step init=FO:UTM29N
+
+<FOTM> proj=etmerc lat_0=0 lon_0=-7 k=0.999997 x_0=200000 y_0=-6000000 ellps=GRS80 units=m no_defs
+<FOTM_FVR09> proj=pipeline step init=FO:FVR09 step init=FO:FOTM
+<FKE> proj=lmb lat_0=62 lon_0=-9 x_0=500000 y_0=500000 lat_1=62 ellps=GRS80 units=m no_defs
+<FKE_FVR09> proj=pipeline step init=FO:FVR09 step init=FO:FKE
+
+# ??
+<FD54_formal> proj=utm zone=29 ellps=intl units=m no_defs
+<FD50_formal> proj=utm zone=29 ellps=intl units=m no_defs
+<FD89_formal> proj=utm zone=29 ellps=intl units=m no_defs
+
+<FG54_formal> proj=geo ellps=intl units=dg no_defs
+<FG50_formal> proj=geo ellps=intl units=dg no_defs
+
+<FU54_formal> proj=utm zone=29 ellps=intl units=m no_defs
+<FU50_formal> proj=utm zone=29 ellps=intl units=m no_defs
+<FU54_FVR09_formal> proj=pipeline step init=FO:FVR09 step init=FO:FU54
+<FU50_FVR09_formal> proj=pipeline step init=FO:FVR09 step init=FO:FU50
+
+<FK54_formal> proj=lmb lat_0=62 lon_0=-9 x_0=500000 y_0=500000 lat_1=62 ellps=intl units=m no_defs
+<FK89_formal> proj=lmb lat_0=62 lon_0=-9 x_0=700000 y_0=700000 lat_1=62 ellps=intl units=m no_defs
+<FK54_FVR09_formal> proj=pipeline step init=FO:FVR09 step init=FO:FK54
+<FK54_FVR09_formal> proj=pipeline step init=FO:FVR09 step init=FO:FK54
+# ??
+
+
+# GEO_ETRS89 -> UTM29_ED50_FO
+# Test point: -7 62 100 0 -> 604850.9786090221  6876031.0401384393   100.0     0
+# echo -7 62 100 0 | cct init=FO.ke0:UTM29_ED50
+#
+<UTM29_ED50> proj=pipeline
+    step   proj=utm ellps=GRS80 zone=29
+    step   init=fu50.pol:UTM29_ED50
+
+# GEO_ETRS89 -> FK54_FD54
+# Test point: -7 62 100 0 -> 394920.18507748388  501535.28689490078   100.0  0.0
+# echo -7 62 100 0 | cct +init=FO.ke0:FK54_FD54|cct -I +init=FO.ke0:FK54_FD54
+<FK54_FD54>  proj=pipeline
+    step proj=utm ellps=GRS80 zone=29
+    step init=fk54.pol:FK54_FD54
+
+# GEO_ETRS89  ->  FK89_FD89 (Really FD54a: FD54 revised in 1989, THIS IS NOT ETRS89!)
+# Test point: -7 62 100 0 -> 594919.9029294271  701535.25742737006   100.0  0.0
+# echo -7 62 100 0 | cct +init=FO.ke0:FK89_FD89|cct -I +init=FO.ke0:FK89_FD89
+<FK89_FD89>  proj=pipeline
+    step proj=utm ellps=GRS80 zone=29
+    step init=fk89.pol:FK89_FD89

@@ -5,17 +5,20 @@
 ################################################################################
 #
 # Forward:
-#    in: S45B_S45B,   out: TC32_TC32B
+#    in: S45B_S45B,   out: TC32_TC32
 #
 # Inverse:
-#    in: TC32_TC32B,  out: S45B_S45B
+#    in: TC32_TC32,  out: S45B_S45B
+#
+# Valid area: Bornholm and surroundings
 #
 ################################################################################
-<TC32B>
+<TC32_B>
 
 proj=horner
 urange=103000
 vrange=119000
+ellps=intl
 
 fwd_origin=47022.563745,51779.260103
 inv_origin=878354.943082,6125305.175366
@@ -167,16 +170,16 @@ fwd_u=\
 ################################################################################
 #
 #  Forward:
-#      in: TC32_TC32,  out: UTM32_ED50B
+#      in: TC32_TC32,  out: UTM32_ED50_B (ED50 som realiseret på Bornholm)
 #  Inverse:
 #      Omvendt.
 #
 ################################################################################
 
-<UTM32_ED50B>
+<UTM32_ED50_B>
 proj=horner
 range=119000
-
+ellps=intl
 
 fwd_origin=877605.269066,6125810.306769
 inv_origin=877605.760036,6125811.281773

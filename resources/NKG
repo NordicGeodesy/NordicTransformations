@@ -1,5 +1,6 @@
 ################################################################################
 #
+#
 #                       NKG Common Nordic Reference Frame
 #
 #   Transformations to and from the common Nordic referenc frame NKG_ETRF00.
@@ -34,12 +35,12 @@
 
     # NKG_ETRF00@2000.0 -> ETRF00@t_obs
     step    proj = deformation t_epoch = 2000.0
-            xy_grids = ./nkgrf03vel_realigned_xy.ct2
-            z_grids  = ./nkgrf03vel_realigned_z.gtx
+            xy_grids = nkgrf03vel_realigned_xy.ct2
+            z_grids  = nkgrf03vel_realigned_z.gtx
             inv
 
     # ETRF00@t_obs -> ITRF2000@t_obs
-    step    init = ./NKG:ITRF2000_ETRF2000 inv
+    step    init = NKG:ITRF2000_ETRF2000 inv
 
     # ITRF2000@t_obs -> ITRF2008@t_obs
     step    init = ITRF2008:ITRF2000 inv
@@ -50,12 +51,12 @@
 
     # NKG_ETRF00@2000.0 -> ETRF00@t_obs
     step    proj = deformation t_epoch = 2000.0
-            xy_grids = ./nkgrf03vel_realigned_xy.ct2
-            z_grids  = ./nkgrf03vel_realigned_z.gtx
+            xy_grids = nkgrf03vel_realigned_xy.ct2
+            z_grids  = nkgrf03vel_realigned_z.gtx
             inv
 
     # ETRF00@t_obs -> ITRF2000@t_obs
-    step    init = ./NKG:ITRF2000_ETRF2000 inv
+    step    init = NKG:ITRF2000_ETRF2000 inv
 
     # ITRF2000@t_obs -> ITRF2014@t_obs
     step    init = ITRF2014:ITRF2000 inv
@@ -79,22 +80,22 @@
 # NKG_ETRF00 -> ETRS89(DK) [ETRF92@1994.704]
 <DK> proj = pipeline ellps=GRS80
 
-     step init = ./NKG:_P1DK
+     step init = NKG:_P1DK
 
      step proj = deformation t_epoch = 1994.704 t_obs = 2000.0
-          xy_grids = ./nkgrf03vel_realigned_xy.ct2
-           z_grids = ./nkgrf03vel_realigned_z.gtx
+          xy_grids = nkgrf03vel_realigned_xy.ct2
+           z_grids = nkgrf03vel_realigned_z.gtx
 
      step proj=cart inv
 
 # NKG_ETRF00 -> ETRS89(EE) [ETRF96@1997.56]
 <EE> proj = pipeline ellps = GRS80
 
-     step init = ./NKG:_P1EE
+     step init = NKG:_P1EE
 
      step proj = deformation t_epoch = 1997.56 t_obs = 2000.0
-          xy_grids = ./nkgrf03vel_realigned_xy.ct2
-           z_grids = ./nkgrf03vel_realigned_z.gtx
+          xy_grids = nkgrf03vel_realigned_xy.ct2
+           z_grids = nkgrf03vel_realigned_z.gtx
 
      step proj = cart inv
 
@@ -106,55 +107,55 @@
 # NKG_ETRF00 -> ETRS89(FI) [ETRF96@1997.0]
 <FI> proj = pipeline ellps = GRS80
 
-     step init = ./NKG:_P1FI
+     step init = NKG:_P1FI
 
      step proj = deformation t_epoch = 1997.0 t_obs = 2000.0
-          xy_grids = ./nkgrf03vel_realigned_xy.ct2
-           z_grids = ./nkgrf03vel_realigned_z.gtx
+          xy_grids = nkgrf03vel_realigned_xy.ct2
+           z_grids = nkgrf03vel_realigned_z.gtx
 
     step proj=cart inv
 
 # NKG_ETRF00 -> ETRS89(LV) [ETRF89@1992.75]
 <LV> proj = pipeline ellps = GRS80
 
-     step init = ./NKG:_P1LV
+     step init = NKG:_P1LV
 
      step proj = deformation t_epoch = 1992.75 t_obs = 2000.0
-          xy_grids = ./nkgrf03vel_realigned_xy.ct2
-           z_grids = ./nkgrf03vel_realigned_z.gtx
+          xy_grids = nkgrf03vel_realigned_xy.ct2
+           z_grids = nkgrf03vel_realigned_z.gtx
 
      step proj = cart inv
 
 # NKG_ETRF00 -> ETRS89(LT) [ETRF2000@2003.75]
 <LT> proj = pipeline ellps = GRS80
 
-     step init = ./NKG:_P1LT
+     step init = NKG:_P1LT
 
      step proj = deformation t_epoch = 2003.75 t_obs = 2000.0
-          xy_grids = ./nkgrf03vel_realigned_xy.ct2
-           z_grids = ./nkgrf03vel_realigned_z.gtx
+          xy_grids = nkgrf03vel_realigned_xy.ct2
+           z_grids = nkgrf03vel_realigned_z.gtx
 
     step proj=cart inv
 
 # NKG_ETRF00 -> ETRS89(NO) [ETRF93@1995.0]
 <NO> proj = pipeline ellps = GRS80
 
-     step init = ./NKG:_P1NO
+     step init = NKG:_P1NO
 
      step proj = deformation t_epoch = 1995.0 t_obs = 2000.0
-          xy_grids = ./nkgrf03vel_realigned_xy.ct2
-           z_grids = ./nkgrf03vel_realigned_z.gtx
+          xy_grids = nkgrf03vel_realigned_xy.ct2
+           z_grids = nkgrf03vel_realigned_z.gtx
 
     step proj=cart inv
 
 # NKG_ETRF00 -> ETRS89(SE) [ETRF97@1999.5]
 <SE> proj = pipeline ellps = GRS80
 
-     step init = ./NKG:_P1SE
+     step init = NKG:_P1SE
 
      step proj = deformation t_epoch = 1999.5 t_obs = 2000.0
-          xy_grids = ./nkgrf03vel_realigned_xy.ct2
-           z_grids = ./nkgrf03vel_realigned_z.gtx
+          xy_grids = nkgrf03vel_realigned_xy.ct2
+           z_grids = nkgrf03vel_realigned_z.gtx
 
      step proj = cart inv
 

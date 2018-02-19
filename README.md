@@ -6,6 +6,19 @@ global reference system ITRS. This repository is a collection of
 transformation parameters and gridded deformation models that can be used with
 the transformation software PROJ.4.
 
+## License
+
+All files in this repository are licensed under the Creative Commons Attribution 4.0 license,
+or as it is commonly referred to, CC-BY 4.0. The license allows redistribution and modification
+of the files as long as the original rights holder is credited. In this case the proper rights
+holder to credit is either NKG or one of the individual members of NKG, typically the local
+National Mapping Authority that has the jurisdiction in the country for which the file is
+related to. For the Danish geoid grid the proper attribution is therefore "The Danish Agency
+for Data Supply and Efficiency". Below the correct authority to attribute for a given files
+is specified.
+
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
 ## Concept
 
 All NKG-transformations are defined such that the common Nordic reference
@@ -115,6 +128,8 @@ which usually has ``PROJ_LIB`` set to ``C:\OSGeo4W64\share\proj``.
 
 ### NKG
 
+*Rights holder*: [The Nordic Geodetic Commision](http://www.nordicgeodeticcommission.com/).
+
 Transformation parameters for transformations going to and from the common
 Nordic frame NKG_ETRF00. Includes transformations to and from global frames such as
 ITRFxx and the national realisations of ETRS89.
@@ -140,6 +155,8 @@ file:
 
 
 ### DK
+
+*Rights holder*: [The Danish Agency for Data Supply and Efficiency](http://sdfe.dk).
 
 | Entry             |  Description
 |-------------------|-----------------------------------------------|
@@ -168,6 +185,8 @@ file:
 
 ### FO
 
+*Rights holder*: [The Danish Agency for Data Supply and Efficiency](http://sdfe.dk).
+
 | Entry             |  Description
 |-------------------|-----------------------------------------------|
 | FOTM              | FOTM                                          |
@@ -180,10 +199,14 @@ file:
 
 ### GL
 
+*Rights holder*: [The Danish Agency for Data Supply and Efficiency](http://sdfe.dk).
+
 Definitions of Greenlandic systems. Uses GR96 as pivot datum.
 
 | Entry             |  Description
 |-------------------|-----------------------------------------------|
 | ITRF2014          | Transformation from GR96 to ITRF2014          |
 | ITRF2008          | Transformation from GR96 to ITRF2008          |
+
+
 

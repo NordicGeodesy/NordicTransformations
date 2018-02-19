@@ -4,8 +4,7 @@
 #
 ###############################################################################
 
-<DVR90> +proj=vgridshift +grids=dvr90g2013.gtx
-<DNN> +proj=vgridshift +grids=dnn.gtx
+<DVR90> +proj=vgridshift +grids=dvr90.gtx
 
 <DKTM1> +proj=etmerc +lat_0=0 +lon_0=9 +k=0.99998 +x_0=200000 +y_0=-5000000 +ellps=GRS80 +units=m +no_defs
 <DKTM2> +proj=etmerc +lat_0=0 +lon_0=10 +k=0.99998 +x_0=400000 +y_0=-5000000 +ellps=GRS80 +units=m +no_defs

@@ -13,7 +13,7 @@ or as it is commonly referred to, CC-BY 4.0. The license allows redistribution a
 of the files as long as the original rights holder is credited. In this case the proper rights
 holder to credit is either NKG or one of the individual members of NKG, typically the local
 National Mapping Authority that has the jurisdiction in the country for which the file is
-related to. For the Danish geoid grid the proper attribution is therefore "The Danish Agency
+related to. For the Danish geoid grid the proper attribution is therefore "Agency
 for Data Supply and Efficiency". Below the correct authority to attribute for a given files
 is specified.
 
@@ -128,7 +128,7 @@ which usually has ``PROJ_LIB`` set to ``C:\OSGeo4W64\share\proj``.
 
 ### NKG
 
-*Rights holder*: [The Nordic Geodetic Commision](http://www.nordicgeodeticcommission.com/).
+*Attribution*: [The Nordic Geodetic Commision](http://www.nordicgeodeticcommission.com/).
 
 Transformation parameters for transformations going to and from the common
 Nordic frame NKG_ETRF00. Includes transformations to and from global frames such as
@@ -156,7 +156,7 @@ file:
 
 ### DK
 
-*Rights holder*: [The Danish Agency for Data Supply and Efficiency](http://sdfe.dk).
+*Attribution*: [Agency for Data Supply and Efficiency](http://sdfe.dk).
 
 | Entry             |  Description
 |-------------------|-----------------------------------------------|
@@ -185,7 +185,7 @@ file:
 
 ### FO
 
-*Rights holder*: [The Danish Agency for Data Supply and Efficiency](http://sdfe.dk).
+*Rights holder*: [Agency for Data Supply and Efficiency](http://sdfe.dk).
 
 | Entry             |  Description
 |-------------------|-----------------------------------------------|
@@ -199,7 +199,7 @@ file:
 
 ### GL
 
-*Rights holder*: [The Danish Agency for Data Supply and Efficiency](http://sdfe.dk).
+*Attribution*: [Agency for Data Supply and Efficiency](http://sdfe.dk).
 
 Definitions of Greenlandic systems. Uses GR96 as pivot datum.
 
@@ -208,5 +208,48 @@ Definitions of Greenlandic systems. Uses GR96 as pivot datum.
 | ITRF2014          | Transformation from GR96 to ITRF2014          |
 | ITRF2008          | Transformation from GR96 to ITRF2008          |
 
+## Grids
 
+Descriptions of the grids available in the NordicTransformations repository.
 
+### nkgrf03vel_realigned_xy.ct
+
+*Rights holder*: [The Nordic Geodetic Commision](http://www.nordicgeodeticcommission.com/).
+
+The horizontal component of the readjusted NKG velocity model from 2003. The readjustment
+is performed as described in [Häkli et al. (2016)](https://www.researchgate.net/profile/Pasi_Haekli/publication/298807458_The_NKG2008_GPS_campaign_-_final_transformation_results_and_a_new_common_Nordic_reference_frame/links/5728674d08aee491cb4262e8/The-NKG2008-GPS-campaign-final-transformation-results-and-a-new-common-Nordic-reference-frame.pdf)
+The velocity model is used in transformations going from global reference frames to
+the individual national realizations of ETRS89.
+
+### nkgrf03vel_realigned_z.gtx
+
+*Attribution*: [The Nordic Geodetic Commision](http://www.nordicgeodeticcommission.com/).
+
+The vertical component of the readjusted NKG velocity model from 2003. The readjustment
+is performed as described in [Häkli et al. (2016)](https://www.researchgate.net/profile/Pasi_Haekli/publication/298807458_The_NKG2008_GPS_campaign_-_final_transformation_results_and_a_new_common_Nordic_reference_frame/links/5728674d08aee491cb4262e8/The-NKG2008-GPS-campaign-final-transformation-results-and-a-new-common-Nordic-reference-frame.pdf)
+The velocity model is used in transformations going from global reference frames to
+the individual national realizations of ETRS89.
+
+### dvr90.gtx
+
+*Attribution*: [Agency for Data Supply and Efficiency](http://sdfe.dk).
+
+Geoid model for the Danish height reference DVR90. The grid implements the
+transformation between GRS80 ellipsoid heights and heights in the DVR90 system.
+Grid coordinates are referenced to ETRS89.
+
+### fvr09.gtx
+
+*Attribution*: [Agency for Data Supply and Efficiency](http://sdfe.dk).
+
+Geoid model for the Faroese height reference FVR09. The grid implements the
+transformation between GRS80 ellipsoid heights and heights in the FVR09 system.
+Grid coordinates are referenced to ETRS89.
+
+### gvr2016.gtx
+
+*Attribution*: [Agency for Data Supply and Efficiency](http://sdfe.dk).
+
+Geoid model for the Greenlandish height reference GVR2016. The grid implements the
+transformation between GRS80 ellipsoid heights and heights in the GVR2016 system.
+Grid coordinates are referenced to GR96.

@@ -185,7 +185,7 @@ file:
 
 ### FO
 
-*Rights holder*: [Agency for Data Supply and Efficiency](http://sdfe.dk).
+*Attribution*: [Agency for Data Supply and Efficiency](http://sdfe.dk).
 
 | Entry             |  Description
 |-------------------|-----------------------------------------------|
@@ -214,7 +214,7 @@ Descriptions of the grids available in the NordicTransformations repository.
 
 ### nkgrf03vel_realigned_xy.ct
 
-*Rights holder*: [The Nordic Geodetic Commision](http://www.nordicgeodeticcommission.com/).
+*Attribution*: [The Nordic Geodetic Commision](http://www.nordicgeodeticcommission.com/).
 
 The horizontal component of the readjusted NKG velocity model from 2003. The readjustment
 is performed as described in [Häkli et al. (2016)](https://www.researchgate.net/profile/Pasi_Haekli/publication/298807458_The_NKG2008_GPS_campaign_-_final_transformation_results_and_a_new_common_Nordic_reference_frame/links/5728674d08aee491cb4262e8/The-NKG2008-GPS-campaign-final-transformation-results-and-a-new-common-Nordic-reference-frame.pdf)

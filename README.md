@@ -207,12 +207,50 @@ Definitions of Greenlandic systems. Uses GR96 as pivot datum.
 |-------------------|-----------------------------------------------|
 | ITRF2014          | Transformation from GR96 to ITRF2014          |
 | ITRF2008          | Transformation from GR96 to ITRF2008          |
+| GVR2000           | Greenlandic Vertical Reference of 2000        |
+| GVR2016           | Greenlandic Vertical Reference of 2016        |
+| UTM18N            | UTM Zone 18N                                  |
+| UTM18N_GVR2000    | UTM Zone 18N + GVR2000 heights                |
+| UTM18N_GVR2016    | UTM Zone 18N + GVR2016 heights                |
+| UTM19N            | UTM Zone 19N                                  |
+| UTM19N_GVR2000    | UTM Zone 19N + GVR2000 heights                |
+| UTM19N_GVR2016    | UTM Zone 19N + GVR2016 heights                |
+| UTM20N            | UTM Zone 20N                                  |
+| UTM20N_GVR2000    | UTM Zone 20N + GVR2000 heights                |
+| UTM20N_GVR2016    | UTM Zone 20N + GVR2016 heights                |
+| UTM21N            | UTM Zone 21N                                  |
+| UTM21N_GVR2000    | UTM Zone 21N + GVR2000 heights                |
+| UTM21N_GVR2016    | UTM Zone 21N + GVR2016 heights                |
+| UTM22N            | UTM Zone 22N                                  |
+| UTM22N_GVR2000    | UTM Zone 22N + GVR2000 heights                |
+| UTM22N_GVR2016    | UTM Zone 22N + GVR2016 heights                |
+| UTM23N            | UTM Zone 23N                                  |
+| UTM23N_GVR2000    | UTM Zone 23N + GVR2000 heights                |
+| UTM23N_GVR2016    | UTM Zone 23N + GVR2016 heights                |
+| UTM24N            | UTM Zone 24N                                  |
+| UTM24N_GVR2000    | UTM Zone 24N + GVR2000 heights                |
+| UTM24N_GVR2016    | UTM Zone 24N + GVR2016 heights                |
+| UTM25N            | UTM Zone 25N                                  |
+| UTM25N_GVR2000    | UTM Zone 25N + GVR2000 heights                |
+| UTM25N_GVR2016    | UTM Zone 25N + GVR2016 heights                |
+| UTM26N            | UTM Zone 26N                                  |
+| UTM26N_GVR2000    | UTM Zone 26N + GVR2000 heights                |
+| UTM26N_GVR2016    | UTM Zone 26N + GVR2016 heights                |
+| UTM27N            | UTM Zone 27N                                  |
+| UTM27N_GVR2000    | UTM Zone 27N + GVR2000 heights                |
+| UTM27N_GVR2016    | UTM Zone 27N + GVR2016 heights                |
+| UTM28N            | UTM Zone 28N                                  |
+| UTM28N_GVR2000    | UTM Zone 28N + GVR2000 heights                |
+| UTM28N_GVR2016    | UTM Zone 28N + GVR2016 heights                |
+| UTM28N            | UTM Zone 29N                                  |
+| UTM29N_GVR2000    | UTM Zone 29N + GVR2000 heights                |
+| UTM29N_GVR2016    | UTM Zone 29N + GVR2016 heights                |
 
 ## Grids
 
 Descriptions of the grids available in the NordicTransformations repository.
 
-### nkgrf03vel_realigned_xy.ct
+### nkgrf03vel_realigned_xy.ct2
 
 *Attribution*: [The Nordic Geodetic Commision](http://www.nordicgeodeticcommission.com/).
 
@@ -250,6 +288,6 @@ Grid coordinates are referenced to ETRS89.
 
 *Attribution*: [Agency for Data Supply and Efficiency](http://sdfe.dk).
 
-Geoid model for the Greenlandish height reference GVR2016. The grid implements the
+Geoid model for the Greenlandic height reference GVR2016. The grid implements the
 transformation between GRS80 ellipsoid heights and heights in the GVR2016 system.
 Grid coordinates are referenced to GR96.

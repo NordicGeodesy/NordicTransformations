@@ -71,8 +71,8 @@ For instance a transformation between the Danish systems *System34 Jylland* and
 
 ```
 +proj=pipeline
-  +step +init=DK:s34j +inv      # System34 Jylland -> ETRS89(DK)
-  +step +init=DK:UTM32_DVR90    # ETRS89(DK) -> ETRS89(DK) / UTM Zone 32
+  +step +init=DK:S34J +inv      # System34 Jylland -> ETRS89(DK)
+  +step +init=DK:UTM32N_DVR90   # ETRS89(DK) -> ETRS89(DK) / UTM Zone 32
 ```
 
 Below is an example of transforming coordinates from the common Nordic frame
@@ -81,7 +81,7 @@ to the Danish compound system of UTM32 and the local vertical reference, DVR90:
 ```
 +proj=pipeline
   +step +init=NKG:DK            # NKG_ETRF00 -> ETRS89(DK)
-  +step +init=DK:UTM32_DVR90    # ETRS89(DK) -> ETRS89(DK)/UTM Zone 32
+  +step +init=DK:UTM32N_DVR90   # ETRS89(DK) -> ETRS89(DK)/UTM Zone 32
 ```
 
 Transforming between coordinate reference systems across national borders is
@@ -90,10 +90,10 @@ coordinates, both of course referenced to the local realisations of ETRS89:
 
 ```
 +proj=pipeline
-  +step +init=SE:UTM32 +inv     # ETRS89(SE)/UTM Zon32 -> ETRS89(SE)
+  +step +init=SE:UTM32N +inv    # ETRS89(SE)/UTM Zon32 -> ETRS89(SE)
   +step +init=NKG:SE +inv       # ETRS89(SE) -> NKG_ETRF00
   +step +init=NKG:NO            # NKG_ETRF00 -> ETRS89(NO)
-  +step +init=NO:UTM32          # ETRS89(NO) -> ETRS89(NO)/UTM Zone 32
+  +step +init=NO:UTM32N         # ETRS89(NO) -> ETRS89(NO)/UTM Zone 32
 ```
 
 ### From global frame to local coordinate reference system
@@ -108,7 +108,7 @@ local UTM-coordinates with:
 +proj=pipeline
   +step +init=NKG:ITRF2014 +t_obs=2017.25 +inv  # ITRF2014@2017.25 -> NKG_ETRF00
   +step +init=NKG:DK                            # NKG_ETRF00 -> ETRS89(DK)
-  +step +init=DK:UTM32                          # ETRS89(DK) -> ETRS89(DK)/UTM Zone 32
+  +step +init=DK:UTM32N                         # ETRS89(DK) -> ETRS89(DK)/UTM Zone 32
 ```
 
 ## "Installing" the PROJ.4 resource files

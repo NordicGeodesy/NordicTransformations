@@ -1,10 +1,10 @@
-# PROJ.4 parameters for transformations defined by the Nordic Geodetic Commision
+# PROJ parameters for transformations defined by the Nordic Geodetic Commision
 
 The Nordic Geodetic Commision (NKG) defines transformations betweeen the
 national realisations of the ETRS89 and the various realisations of the
 global reference system ITRS. This repository is a collection of
 transformation parameters and gridded deformation models that can be used with
-the transformation software PROJ.4.
+the transformation software PROJ.
 
 ## License
 
@@ -25,7 +25,7 @@ All NKG-transformations are defined such that the common Nordic reference
 frame, *NKG_ETRF00*, functions as a transformation hub. That is, all
 transformations from e.g. ITRFxx to the national realisations of ERTS89 go through
 NKG_ETRF00. We use this to our advantage when setting up the parameter files
-for PROJ.4. By leveraging init-files in PROJ.4 a system is set up that delivers
+for PROJ. By leveraging init-files in PROJ a system is set up that delivers
 an easy-to-use shorthand notation for day to day use of PROJ.4 that hides most
 of the complexity of the transformations for the user.
 
@@ -38,27 +38,72 @@ to perform a wide range of transformations between various local and Nordic
 systems, without having to define transformation parameters for all of the
 possible paths between systems.
 
+## Usage in PROJ
+
+It is out of the scope of this collection of grids and parameter files
+to also describe all the nitty details of the usage of PROJ but a short
+introduction is warranted nonetheless. We refer to the [PROJ documentation](http://proj4.org) 
+for specific details. It is also worth noting that the project's
+[mailing list](http://lists.maptools.org/mailman/listinfo/proj) is a
+valuable resource for the PROJ user. Use it when you have questions you
+can't find answers to in the documentation.
+
+
+All of the transformation setups in the sections below can be used
+with the `cct` application, e.g.
+
+```
+cct +proj=... <file>
+```
+
+For coordinates without an epoch the `-t` option of `cct` can be used, e.g.
+
+```
+cct -t 2015.830 +proj=... <file>
+```
+
+Consult the documentation for [`cct`](http://proj4.org/apps/cct.html) for
+further details on the use of `cct`. `cct` is the go-to application for
+spatio-temporal (4D) coordinates.
+
+All transformation setups used `cct` with `cct` are describing the
+transformation between two systems. In PROJ the `cs2cs` application can be
+used to transform between to named coordinate systems without knowing the
+specifics of the transformation between those two systems. This functionality
+also works with the NKG transformations, at least for the national transformations
+described below. An example of such transformation is given below where we
+transform Danish UTM32 coordinates to System34 with `cs2cs`:
+
+```
+cs2cs +init=DK:UTM32 +to +init=DK:S34S <file>
+```
+
+`cs2cs` does only work with 2D and 3D coordinates. So for more advanced 4D
+transformations using `cct` is necessary.
+
+
 ## Transforming coordinates
 
 In the following examples of various transformations are given in the form of
-PROJ.4 proj-strings. Users unfamiliar with PROJ.4 should consult the
-[documentation of the software](http://www.PROJ4.org) for an introduction.
+PROJ proj-strings. See the above section for a few examples of how the can be
+used. Consult the PROJ documentation for further details and examples.
+
 
 ### Global reference frames and the common Nordic frame
 
 Below is a few examples of proj-strings that is used for the
 NKG-transformations.
 
-ITRF2014 to NKG_ETRF00 (the common NKG reference frame):
+NKG_ETRF00 (the common NKG reference frame) to ITRF2014:
 ```
-+proj=pipeline +step +init=NKG:ITRF2014 +t_obs=2017.25 +inv
++init=NKG:ITRF2014
 ```
 
 ITRF2014 to the Danish realisation of ETRS89:
 ```
 +proj=pipeline
-  +step +init=NKG:ITRF2014 +t_obs=2017.25 +inv      # ITRF2014@2017.25 -> NKG_ETRF00
-  +step +init=NKG:DK                                # NKG_ERTF00 -> ETRS89(DK)
+  +step +init=NKG:ITRF2014 +inv  # ITRF2014 -> NKG_ETRF00 (observation epoch given in coordinate input)
+  +step +init=NKG:DK             # NKG_ERTF00 -> ETRS89(DK)
 ```
 
 ### National coordinate reference systems
@@ -106,21 +151,21 @@ local UTM-coordinates with:
 
 ```
 +proj=pipeline
-  +step +init=NKG:ITRF2014 +t_obs=2017.25 +inv  # ITRF2014@2017.25 -> NKG_ETRF00
-  +step +init=NKG:DK                            # NKG_ETRF00 -> ETRS89(DK)
-  +step +init=DK:UTM32N                         # ETRS89(DK) -> ETRS89(DK)/UTM Zone 32
+  +step +init=NKG:ITRF2014 +inv  # ITRF2014 -> NKG_ETRF00
+  +step +init=NKG:DK             # NKG_ETRF00 -> ETRS89(DK)
+  +step +init=DK:UTM32N          # ETRS89(DK) -> ETRS89(DK)/UTM Zone 32
 ```
 
-## "Installing" the PROJ.4 resource files
+## "Installing" the PROJ resource files
 
-PROJ.4 looks for resource files in a few standard locations as well as a user
+PROJ looks for resource files in a few standard locations as well as a user
 specified libarary, that can be controlled with the environment variable
-``PROJ_LIB``. On Windows systems PROJ.4 only looks for resource files in the
+``PROJ_LIB``. On Windows systems PROJ only looks for resource files in the
 folder specified in ``PROJ_LIB`` and the current directory. On UNIX(-like)
-systems PROJ.4 also looks in ``/usr/local/share/proj``. With this in mind,
-the NKG PROJ.4 resource files should be copied to one of those locations.
+systems PROJ also looks in ``/usr/local/share/proj``. With this in mind,
+the NKG PROJ resource files should be copied to one of those locations.
 
-Most Windows-users will probably be using the OSGeo4W distribution of PROJ.4,
+Most Windows-users will probably be using the OSGeo4W distribution of PROJ,
 which usually has ``PROJ_LIB`` set to ``C:\OSGeo4W64\share\proj``.
 
 
@@ -138,20 +183,20 @@ At the moment the NKG file is not yet created, but eventually the following
 transformation entries can be used in conjunction with the ``NKG`` parameter
 file:
 
-| Entry    | Required options | Description                                         |
-|----------|------------------|-----------------------------------------------------|
-| ITRF2000 | ``+t_obs``       |                                                     |
-| ITRF2005 | ``+t_obs``       |                                                     |
-| ITRF2008 | ``+t_obs``       |                                                     |
-| ITRF2014 | ``+t_obs``       |                                                     |
-| DK       |                  | Danish realisation of ETRS89 (ETRF92@1994.704)      |
-| EE       |                  | Estonian realisation of ETRS89 (ETRF96@1997.56)     |
-| FO       |                  | Faroese realisation of ETRS89 (ETRF2000@2008.75)    |
-| FI       |                  | Finish realisation of ETRS89 (ETRF96@1997.0)        |
-| LV       |                  | Latvian realisation of ETRS89 (ETRF89@1992.75)      |
-| LT       |                  | Lithuanian realisation of ETRS89 (ETRF2000@2003.75) |
-| NO       |                  | Norwegian realisation of ETRS89 (ETRF93@1995.0)     |
-| SE       |                  | Swedish realisation of ETRS89 (ETRF97@1999.5)       |
+| Entry    | Description                                         |
+|----------|-----------------------------------------------------|
+| ITRF2000 |                                                     |
+| ITRF2005 |                                                     |
+| ITRF2008 |                                                     |
+| ITRF2014 |                                                     |
+| DK       | Danish realisation of ETRS89 (ETRF92@1994.704)      |
+| EE       | Estonian realisation of ETRS89 (ETRF96@1997.56)     |
+| FO       | Faroese realisation of ETRS89 (ETRF2000@2008.75)    |
+| FI       | Finish realisation of ETRS89 (ETRF96@1997.0)        |
+| LV       | Latvian realisation of ETRS89 (ETRF89@1992.75)      |
+| LT       | Lithuanian realisation of ETRS89 (ETRF2000@2003.75) |
+| NO       | Norwegian realisation of ETRS89 (ETRF93@1995.0)     |
+| SE       | Swedish realisation of ETRS89 (ETRF97@1999.5)       |
 
 
 ### DK

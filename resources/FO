@@ -37,6 +37,6 @@
 <gie>
 operation   init=FO:FK89
 tolerance   50 mm
-accept      -7  52  100 0
-expect      594919.9029294271  701535.25742737006   100.0  0.0
+accept      -7  62 0 0
+expect      594919.9029294271  701535.25742737006  0.0  0.0
 </gie>

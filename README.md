@@ -239,6 +239,7 @@ file:
 | UTM29N            | UTM Zone 29N                                  |
 | UTM29N_FVR09      | UTM Zone 29N + FVR09 heights                  |
 | FD54              | Faroese Datum of 1954                         |
+| FK89              |                                               |
 | FVR09             | Faroese Vertical Reference of 2009            |
 
 

@@ -210,23 +210,33 @@ file:
 | S45B              | System45 Bornholm                             |
 | KP2000J           | KP2000 Jylland                                |
 | KP2000J_DVR90     | KP2000 Jylland + DVR90 heights                |
+| KP2000J_DNN       | KP2000 Jylland + DNN heights                  |
 | KP2000S           | KP2000 Sjælland                               |
 | KP2000S_DVR90     | KP2000 Sjælland + DVR90 heights               |
+| KP2000S_DNN       | KP2000 Sjælland + DNN heights                 |
 | KP2000B           | KP2000 Bornholm                               |
 | KP2000B_DVR90     | KP2000 Bornholm + DVR90 heights               |
+| KP2000B_DNN       | KP2000 Bornholm + DNN heights                 |
 | DKTM1             | DKTM1                                         |
 | DKTM1_DVR90       | DKTM1 + DVR90 heights                         |
+| DKTM1_DNN         | DKTM1 + DNN heights                           |
 | DKTM2             | DKTM2                                         |
 | DKTM2_DVR90       | DKTM2 + DVR90 heights                         |
+| DKTM2_DNN         | DKTM2 + DNN heights                           |
 | DKTM3             | DKTM3                                         |
 | DKTM3_DVR90       | DKTM3 + DVR90 heights                         |
+| DKTM3_DNN         | DKTM3 + DNN heights                           |
 | DKTM4             | DKTM4                                         |
 | DKTM4_DVR90       | DKTM4 + DVR90 heights                         |
+| DKTM4_DNN         | DKTM4 + DNN heights                           |
 | UTM32N            | UTM Zone 32N                                  |
 | UTM32N_DVR90      | UTM Zone 32N + DVR90 heights                  |
+| UTM32N_DNN        | UTM Zone 32N + DNN heights                    |
 | UTM33N            | UTM Zone 33N                                  |
 | UTM33N_DVR90      | UTM Zone 33N + DVR90 heights                  |
+| UTM33N_DNN        | UTM Zone 33N + DNN heights                    |
 | DVR90             | Danish Vertical Reference of 1990             |
+| DNN               | Dansk Normal Nul                              |
 
 ### FO
 

@@ -30,7 +30,7 @@
 #
 ###############################################################################
 
-# ITRF2008 -> NKG_ETRF00
+# NKG_ETRF00 -> ITRF2008
 <ITRF2008>  proj = pipeline ellps = GRS80
 
     # NKG_ETRF00@2000.0 -> ETRF00@t_obs
@@ -46,7 +46,7 @@
     step    init = ITRF2008:ITRF2000 inv
 
 
-# ITRF2014 -> NKG_ETRF00
+# NKG_ETRF00 -> ITRF2014
 <ITRF2014>  proj = pipeline ellps = GRS80
 
     # NKG_ETRF00@2000.0 -> ETRF00@t_obs

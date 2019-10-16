@@ -156,7 +156,7 @@
 
      step init = NKG:_P1SE
 
-     step proj = deformation -0.5
+     step proj = deformation dt = -0.5
           xy_grids = nkgrf03vel_realigned_xy.ct2
            z_grids = nkgrf03vel_realigned_z.gtx
 

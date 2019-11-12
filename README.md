@@ -66,20 +66,13 @@ Consult the documentation for [`cct`](http://proj4.org/apps/cct.html) for
 further details on the use of `cct`. `cct` is the go-to application for
 spatio-temporal (4D) coordinates.
 
-All transformation setups used `cct` with `cct` are describing the
-transformation between two systems. In PROJ the `cs2cs` application can be
-used to transform between to named coordinate systems without knowing the
-specifics of the transformation between those two systems. This functionality
-also works with the NKG transformations, at least for the national transformations
-described below. An example of such transformation is given below where we
-transform Danish UTM32 coordinates to System34 with `cs2cs`:
+All transformation setups using `cct` are describing the transformation
+between two systems. An example of such transformation is given below where we
+transform Danish UTM32 coordinates to System34 with `cct`:
 
 ```
-cs2cs +init=DK:UTM32 +to +init=DK:S34S <file>
+cct +proj=pipeline +step +init=DK:UTM32 +inv +step +init=DK:S34S <file>
 ```
-
-`cs2cs` does only work with 2D and 3D coordinates. So for more advanced 4D
-transformations using `cct` is necessary.
 
 
 ## Transforming coordinates

@@ -1,0 +1,22 @@
+<gie>
+
+---------------------------------------------
+From GEO_GS to ETRS89
+---------------------------------------------
+operation   +init=DK:GEO_GS
+tolerance   1 cm
+direction   inverse
+
+accept      1.930208333     55.56633333     0
+expect      10.645928687    55.566277007    0
+roundtrip   10
+
+accept      1.932541667     55.42816667     0
+expect      10.643603061    55.428131578    0
+roundtrip   10
+
+accept      1.879708333     55.34883333     0
+expect      10.696431567    55.348811106    0
+roundtrip   10
+
+</gie>

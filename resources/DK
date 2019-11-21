@@ -173,12 +173,12 @@ expect      687178.31448147167  390074.81929540867
             units=m no_defs
 
 # Generalstabens lcc Jutland and Zealand (lon_0 = 2 12 nt, W positive)
-<_GS_FORMAL>  proj=lcc lat_ts=56 lat_0=55 lon_0=2.2
-             x_0=0    y_0=0   ellps=GS
+<_GS_FORMAL>  proj=lcc lat_1=56 lat_0=55 lon_0=2.2
+             x_0=0    y_0=0   ellps=andrae
 
 # Generalstabens konform-koniske for Bornholm (lon_0 = -2 21 nt, W positive)
 <_GSB_FORMAL> proj=lcc lat_1=56 lat_0=55 lon_0=-2.35 # lat_ts=56
-             x_0=18831.460 y_0=5614.621 ellps=GS
+             x_0=18831.460 y_0=5614.621 ellps=andrae
 
 # Koebenhavns Kommune
 # <_KK_FORMAL>  proj=localcrd ellps=danish units=m no_defs
@@ -475,9 +475,11 @@ expect      112779.7960  275908.0748   # Authoritative value, obtained from KMST
     step   init=DK:UTM32_ED50_L
     step   init=DK_general.pol:GS
 #------------------------------------------------------------------------------------------------------
-<GEO_GS> proj=pipeline  ellps=GRS80
+<GEO_GS> proj=pipeline
+    step   proj=push v_3
     step   init=DK:GS
-    step   init=DK:GS_FORMAL inv
+    step   init=DK:_GS_FORMAL inv
+    step   proj=pop v_3
 #------------------------------------------------------------------------------------------------------
 <gie>
 operation   init=DK:GS
@@ -510,9 +512,11 @@ expect      10  57
     step   init=DK:UTM33_ED50_B
     step   init=DK_bornholm.pol:GSB
 #------------------------------------------------------------------------------------------------------
-<GEO_GSB> proj=pipeline  ellps=GRS80       #
+<GEO_GSB> proj=pipeline
+    step   proj=push v_3
     step   init=DK:GSB
     step   init=DK:_GSB_FORMAL inv
+    step   proj=pop v_3
 #------------------------------------------------------------------------------------------------------
 <gie>
 operation   init=DK:GSB

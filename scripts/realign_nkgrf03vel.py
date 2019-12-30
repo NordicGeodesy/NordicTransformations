@@ -146,6 +146,8 @@ print(np.min(VN[:]), np.max(VN[:]), np.mean(VN[:]))
 print(np.min(VE[:]), np.max(VE[:]), np.mean(VE[:]))
 print(np.min(VU[:]), np.max(VU[:]), np.mean(VU[:]))
 
-# CTable2 files are ordered N/E, that is band 0 is north, band 1 is east - maybe!?
+# CTable2 files are physicalled ordered E first,N second, but the GDAL CTable2
+# driver, for consistency with NTv2, exposes the bands in the N,E
+# order. See https://github.com/OSGeo/gdal/blob/7673db05ef592e706662c085e736f5ca3bf7da67/gdal/frmts/raw/ctable2dataset.cpp#L224
 grid.export(r'../resources/nkgrf03vel_realigned_xy.ct2', (1, 2), 'CTable2')
 grid.export(r'../resources/nkgrf03vel_realigned_z.gtx', (3,), 'GTX')

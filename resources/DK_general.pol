@@ -169,7 +169,7 @@ inv_u=
 #tcx     570523.004090
 
 # static  double      C_utt_l[]
-# utm32_ed50 -> tc32_ed50 : Jylland & Sjæland
+# utm32_ed50 -> tc32_ed50 : Jylland & Sjælland
 # m_lim_gen:  0.096  red  = 0      OBS   = 31136
 # m = 1.59 cm my_loss =     +9  y_enp = +4.0
 # m = 1.48 cm mx_loss =    +10  x_enp = +3.7
